@@ -1,0 +1,17 @@
+extends layout
+block content
+    .aptitle
+        h1.ap-title Enter your post here
+        p Fill the below form to enter a new post. All fields are required
+    form(method="post", action="/addpost/add")
+        .form-group
+            label Title
+            input.form-control(name='title', type='text', placeholder='Title')
+        .form-group
+            label Body
+            textarea.form-control(name='body',  placeholder='Enter Post Conetent Here')
+        .form-group
+            label Author
+            input.form-control(name='author', type='text', placeholder='Author name')
+        input.btn.btn-success.form-submit(name='submit', type='submit', value='submit')
+        
