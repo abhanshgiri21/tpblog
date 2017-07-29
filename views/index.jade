@@ -1,6 +1,15 @@
 extends layout
 block content
-    h1 This is the Home Page
-    h2 Welcome to my blog
+    script(src='/javascripts/moment.js')
+    img.main-img(src='/images/img1.jpg')
+    .col-md-8
+        each post, i in posts
+            .post-div
+                h1.post-heading #{post.title}
+                p.post-author - #{post.author} 
+                p.post-author Posted on: #{post.date}
+                p.post-body #{post.body}
 
-
+    .col-md-4
+    
+script(src='/javascripts/moment.js')

@@ -5,21 +5,29 @@ html
 		link(rel='stylesheet',href='/stylesheets/bootstrap.css')
 		link(rel='stylesheet',href='/stylesheets/style.css')
 	body
-		nav.navbar-nav.navbar-inverse.navbar-fixed-top
-			.container
+		nav.navbar.navbar-inverse
+			.container-fluid
 				.navbar-header
-					a.navbar-brand(href='#') Simple Express Website
-					button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-						span.sr-only Toggle navigation
+					button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
 						span.icon-bar
 						span.icon-bar
 						span.icon-bar
-				#navbar.collapse.navbar-collapse
+					a.navbar-brand(href='#') Home Blog
+				#myNavbar.collapse.navbar-collapse
 					ul.nav.navbar-nav
 						li(class=(title== 'Home'?'active':''))
 							a(href='/') Home
 						li(class=(title== 'Add Post'?'active':''))
-							a(href='/addpost') Add Post		
+							a(href='/addpost') Add Post	
+						li(class=(title== 'register'?'active':''))
+							a(href='/users') Register
+					ul.nav.navbar-nav.navbar-right
+						li(class=(title== 'login'?'active':''))
+							a(href='/users/login') LogIn
+						li
+							a(href='signup') Sign Up
+	.container
+			!= messages()						
 	block content
 
 script(src='/javascripts/jquery.js')

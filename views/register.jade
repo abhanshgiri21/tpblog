@@ -1,0 +1,24 @@
+extends layout
+block content
+    h1 Registration page
+    p register by fillng the form below
+    form(method='post', action='/users/register', enctype='multipart/form-data')
+        .form-group
+            label Name
+            input.form-control(name='name', type='text', placeholder='name')
+        .form-group
+            label Email
+            input.form-control(name='email', type='email', placeholder='email')
+        .form-group
+            label username
+            input.form-control(name='username', type='text', placeholder='username')
+        .form-group
+            label Password
+            input.form-control(name='password', type='password', placeholder='password')
+        .form-group
+            label Confirm password
+            input.form-control(name='password2', type='password', placeholder='confirm password')
+        .form-group
+            label profile image
+            input.form-control(name='profileImage', type='file')
+        input.button.btn.btn-success(name='submit', type='submit', value='register')
