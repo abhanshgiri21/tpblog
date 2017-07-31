@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var db = require('mongoose').connect('localhost/tpblog');
-
 var Post = require('../model/posts');
 
 /* GET home page. */

@@ -4,7 +4,7 @@ var multer = require('multer');
 var upload = multer({dest:'./uploads'});
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-
+ 
 
 //get the user model
 var User = require('../model/user.js');
@@ -75,7 +75,7 @@ router.get('/login', function(req, res){
 });
 
 //passport local strategy for login
-passport.use(new LocalStrategy(
+passport.use('local',new LocalStrategy(
     function(username, password, done){
         console.log('this is inside local strategy');
         User.getUserByUsername(username, function(err, user){
@@ -88,12 +88,15 @@ passport.use(new LocalStrategy(
     }
 ));
 
+
+
 //login post request handler
 router.post('/login', passport.authenticate('local', {failureRedirect:'/users', failureFlash:'incorrect username or password'}), function(req, res){
     console.log('Authentication successful')    ;
     req.flash('You are now logged in ');
     res.redirect('/');
 });
+
 
 //export the router
 module.exports = router;    
