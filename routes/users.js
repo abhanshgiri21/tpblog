@@ -99,4 +99,4 @@ router.post('/login', passport.authenticate('local', {failureRedirect:'/users', 
 
 
 //export the router
-module.exports = router;    
+module.exports = router;
