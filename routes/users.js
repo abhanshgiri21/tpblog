@@ -14,6 +14,9 @@ router.get('/', function(req, res, next){
     res.render('register', {title:'register'});
 });
 
+router.get('/register', function(req, res){
+    res.render('register');
+})
 
 router.post('/register',upload.single('profileImage'), function(req, res, next){
     var name = req.body.name;
@@ -91,7 +94,7 @@ passport.use('local',new LocalStrategy(
 
 
 //login post request handler
-router.post('/login', passport.authenticate('local', {failureRedirect:'/users', failureFlash:'incorrect username or password'}), function(req, res){
+router.post('/login', passport.authenticate('local', {failureRedirect:'/users/login', failureFlash:'incorrect username or password'}), function(req, res){
     console.log('Authentication successful')    ;
     req.flash('You are now logged in ');
     res.redirect('/');

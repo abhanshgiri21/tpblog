@@ -6,7 +6,7 @@ var router = express.Router();
 var Post = require('../model/posts');
 
 //serve the addpost page
-router.get('/', function(req, res, next) {
+router.get('/', ensureAuthenticated, function(req, res, next) {
   res.render('addpost', {title:'Add Post'})
 });
 
@@ -56,4 +56,11 @@ router.post('/add', function(req, res, next){
 
   });
 });
+
+function ensureAuthenticated(req, res){
+  if(req.isAuthenticated()){
+    return next();
+  }
+  return res.render('login');
+}
 module.exports = router;

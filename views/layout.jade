@@ -12,20 +12,18 @@ html
 						span.icon-bar
 						span.icon-bar
 						span.icon-bar
-					a.navbar-brand(href='#') Home Blog
+					a.navbar-brand(href='/') Home Blog
 				#myNavbar.collapse.navbar-collapse
 					ul.nav.navbar-nav
 						li(class=(title== 'Home'?'active':''))
 							a(href='/') Home
 						li(class=(title== 'Add Post'?'active':''))
 							a(href='/addpost') Add Post	
-						li(class=(title== 'register'?'active':''))
-							a(href='/users') Register
 					ul.nav.navbar-nav.navbar-right
 						li(class=(title== 'login'?'active':''))
 							a(href='/users/login') LogIn
 						li
-							a(href='signup') Sign Up
+							a(href='/users/register') Sign Up
 	.container
 			!= messages()						
 	block content
